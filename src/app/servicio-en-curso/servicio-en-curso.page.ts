@@ -4,13 +4,12 @@ import { MenuController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { FulltrackComponent } from '../fulltrack/fulltrack.component';
-
 @Component({
-  selector: 'app-servicios',
-  templateUrl: './servicios.page.html',
-  styleUrls: ['./servicios.page.scss'],
+  selector: 'app-servicio-en-curso',
+  templateUrl: './servicio-en-curso.page.html',
+  styleUrls: ['./servicio-en-curso.page.scss'],
 })
-export class ServiciosPage implements OnInit {
+export class ServicioEnCursoPage implements OnInit {
 
   origen = {
     lat: 0,
@@ -44,7 +43,6 @@ export class ServiciosPage implements OnInit {
   }
   ngOnInit() {
   }
-  
   async presentAlertGuardia() {
     const alert = await this.alertController.create({
       header: 'GUARDIA PARA EVENTO',

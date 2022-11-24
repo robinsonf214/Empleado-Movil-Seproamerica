@@ -14,8 +14,8 @@ export class RegisterModel{
     idEquipamiento!: Number;
     Marca!: String;
     Color!: String;
-    UsuarioApp!: String;
-    Contrasenia!: String;
+    usuarioApp!: String;
+    contrasenia!: String;
 
     /*constructor(apellidos: String, nombres: String, cedula: Number, fNacimiento: Date, sexo: String, correo: String, telefono: Number, contrasenha: String){
         this.apellidos = apellidos;

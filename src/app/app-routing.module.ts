@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'servicioenCurso',
+    loadChildren: () => import('./servicio-en-curso/servicio-en-curso-routing.module').then( m => m.ServicioEnCursoPageRoutingModule),
+
+  },
+  {
     path: 'servicios',
     loadChildren: () => import('./servicios/servicios.module').then( m => m.ServiciosPageModule),
 
@@ -115,10 +120,7 @@ const routes: Routes = [
     path: 'menuprueba',
     loadChildren: () => import('./menuprueba/menuprueba.module').then( m => m.MenupruebaPageModule)
   },
-  {
-    path: 'ubicacion',
-    loadChildren: () => import('./ubicacion/ubicacion.module').then( m => m.UbicacionModule)
-  },
+
   {
     path: 'homeperfil',
     loadChildren: () => import('./homeperfil/homeperfil.module').then( m => m.HomeperfilPageModule)
@@ -132,18 +134,11 @@ const routes: Routes = [
     loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
   },
   {
-    path: 'sucursales',
-    loadChildren: () => import('./sucursales/sucursales.module').then( m => m.SucursalesPageModule)
-  },
-  {
     path: 'item1-modal',
     loadChildren: () => import('./item1-modal/item1-modal.module').then( m => m.Item1ModalPageModule)
     
   },
-  {
-    path: 'sucursal',
-    loadChildren: () => import('./sucursal/sucursal.module').then( m => m.SucursalPageModule)
-  },
+ 
   {
     path: 'calificar-servicio',
     loadChildren: () => import('./calificar-servicio/calificar-servicio.module').then( m => m.CalificarServicioPageModule)

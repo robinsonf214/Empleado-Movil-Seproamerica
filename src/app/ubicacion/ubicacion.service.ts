@@ -7,8 +7,10 @@ declare var google: any;
 })
 export class UbicacionService {
 
-  //apiKey = "AIzaSyARkLozSqbcq3v4He-7DPVqZCEXAOXJ_ZQ";
-  apiKey = "AIzaSyADtLU610nbylQGYQC9He-G70K-ASShP4M";
+  apiKey = "AIzaSyARkLozSqbcq3v4He-7DPVqZCEXAOXJ_ZQ";
+  
+
+
   mapsLoaded = false;
 
   constructor() { }

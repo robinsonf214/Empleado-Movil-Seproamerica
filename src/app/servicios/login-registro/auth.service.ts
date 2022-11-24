@@ -10,14 +10,12 @@ import { RegisterModel } from "src/app/modelos/register.model";
 export class AuthService{
   [x: string]: any;
 
-  usuario: RegisterModel = {
-    apellidos: '',
-    nombres: '',
-    cedula: 0,
-    fechaNac: new Date(),
-    sexo: '',
-    correo: '',
-    telefono: 0,
+  UsuarioApp: RegisterModel = {
+    NumeroCell: 0,
+    idEquipamiento: 0,
+    Marca: '',
+    Color: '',
+    usuarioApp: '',
     contrasenia: ''
   };
 
@@ -28,21 +26,19 @@ export class AuthService{
   //sesionIniciada: boolean = false;
   sesionIniciada = new Subject<boolean>()
 
-  //Este valor pasa al guard y de manera muy rapida. La solucion deberia enfocarse en hacer que esta parte corra luego de los if de la linea 111 de inicio sesion componente
   sesionValidada: boolean = true;
 
   //Para el registro (validacion)
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
-    apellidos: new FormControl(''),
-    nombres: new FormControl(''),
-    cedula: new FormControl(''),
-    fechaNacimiento: new FormControl(''),
-    sexo: new FormControl(''),
-    correo: new FormControl(''),
-    telefono: new FormControl(''),
-    contrasenia: new FormControl(''),
+    numeroCell: new FormControl(''),
+    idEquipamiento: new FormControl(''),
+    Marca: new FormControl(''),
+    Color: new FormControl(''),
+    usuarioApp: new FormControl(''),
+    Contrasenia: new FormControl(''),
     esPermanente: new FormControl(false)
+
   });
 
 
@@ -62,30 +58,28 @@ export class AuthService{
 
   //Método para probar paso de datos a componente principal
   getUsuario(){
-    return this.usuario;
+    return this.UsuarioApp;
   }
 
   /*Metodo para obtener el usuario del inicio de sesion */
-  infoPutUsuario(usuarioIS: RegisterModel){
-    this.usuario = usuarioIS;
+  infoPutUsuario(usuarioIS:RegisterModel){
+    this.UsuarioApp = usuarioIS;
   }
 
   /*Metodo para enviar datos de usuario a distintos componentes */
   enviarUsuario(){
-    return this.usuario;
+    return this.UsuarioApp;
   }
 
   //Metodo para resetear usuario
   reseteoUsuario(){
-    this.usuario = {
-      apellidos: '',
-      nombres: '',
-      cedula: 0,
-      fechaNac: new Date(),
-      sexo: '',
-      correo: '',
-      telefono: 0,
-      contrasenia: ''
+    this.UsuarioApp = {
+    NumeroCell: 0,
+    idEquipamiento: 0,
+    Marca: '',
+    Color: '',
+    usuarioApp: '',
+    contrasenia: ''
     };
     this.sesionIniciada.next(false)
   }

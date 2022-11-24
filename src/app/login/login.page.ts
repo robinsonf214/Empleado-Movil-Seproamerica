@@ -1,5 +1,5 @@
 // login.page.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
@@ -28,8 +28,8 @@ export class LoginPage implements OnInit {
     idEquipamiento: 0,
     Marca: '',
     Color: '',
-    UsuarioApp: '',
-    Contrasenia: ''
+    usuarioApp: '',
+    contrasenia: ''
   };
 
   constructor(private navCtrl: NavController, 
@@ -41,7 +41,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
-      //mobile: ['', [Validators.required, Validators.pattern('^09[0-9]{8}$') ]],
       password: ['', [Validators.required]],
       email: ['', [Validators.required]],
       
@@ -98,7 +97,7 @@ export class LoginPage implements OnInit {
     this.ionicForm.reset();
   }
   redirigir_home(){
-    this.navCtrl.navigateForward("/servicios");
+    this.navCtrl.navigateForward("/servicioenCurso");
     this.ionicForm.reset();
   }
   
@@ -111,7 +110,7 @@ export class LoginPage implements OnInit {
 
   //Funcion que obtiene el objeto de la base de datos y valida el inicio de sesion
   getUsuarioA(): void{
-    var UsuarioAppIngresado = this.ionicForm.value.UsuarioApp;
+    var UsuarioAppIngresado = this.ionicForm.value.email;
     console.log(UsuarioAppIngresado)
     this.camposCompletos = !this.ionicForm.invalid;
     console.log("Campos completos: "+this.camposCompletos)
@@ -122,11 +121,10 @@ export class LoginPage implements OnInit {
           this.usuarioActual = data;
           console.log(data)
           console.log(this.usuarioActual)
-          var contrasenhaValidar = data.Contrasenia
+          var contrasenhaValidar = data.contrasenia
           console.log("========================")
-          console.log(this.ionicForm.value.password)
-          console.log(contrasenhaValidar)
-          
+          console.log('pass de page')
+          console.log(this.ionicForm.value.password == contrasenhaValidar)
           if(this.ionicForm.value.password == contrasenhaValidar){
             this.authService.infoPutUsuario(this.usuarioActual)
             console.log("inicio de sesion exitoso")
